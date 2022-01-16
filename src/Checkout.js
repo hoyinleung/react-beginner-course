@@ -1,5 +1,6 @@
 import Title from "./Title"
 import {Link} from 'react-router-dom'
+import QuantityBtn from "./QuantityBtn"
 
 export default function Checkout() {
 
@@ -53,11 +54,12 @@ export default function Checkout() {
                             /* 產品列表 */
                             cartItems.map(product=>(
                                 <div key={product.id}>
-                                    <img src={process.env.PUBLIC_URL+'/img/'+product.image}/>
+                                    <img src={process.env.PUBLIC_URL+'/img/'+product.image} alt={product.name}/>
                                     {product.name}
                                     {product.description}
                                     {product.price}
                                     購買數量{product.quantity}
+                                    <QuantityBtn/>
                                 </div>
                             ))
                         }

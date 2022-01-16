@@ -2,6 +2,7 @@ import {Link} from "react-router-dom"
 import styles from './ProductList.module.css'
 import {useState, useEffect} from "react"  //React Hook
 import Title from "./Title"
+import QuantityBtn from "./QuantityBtn"
 
 export default function ProductList() {
 
@@ -43,6 +44,7 @@ export default function ProductList() {
                             </Link>
                             <br/>
                             {product.description}<br/>
+                            <QuantityBtn/>
                         </div>
                     ))
                 }
