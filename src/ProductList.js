@@ -38,13 +38,13 @@ export default function ProductList() {
                     productList.map(product=>(
                         <div className={styles.productBorder} key={product.id}>
                             {product.name}<br/>
-                            {product.price}<br/>
+                            {product.price}元/件<br/>
                             <Link to={'/product/'+product.id}>
                             <img src={process.env.PUBLIC_URL+'/img/'+product.image} alt={product.name} />
                             </Link>
                             <br/>
                             {product.description}<br/>
-                            <QuantityBtn/>
+                            <QuantityBtn productInfo={product} />
                         </div>
                     ))
                 }

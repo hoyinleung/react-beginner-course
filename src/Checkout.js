@@ -14,7 +14,7 @@ export default function Checkout() {
                 "image": "blueberry.jpg",
                 "price": 10,
                 "description": "新鮮藍梅50克，補眼之寶",
-                "quantity": 3
+                "quantity": 1
             },
             {
                 "id": 4,
