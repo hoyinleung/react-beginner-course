@@ -9,8 +9,9 @@ export default function ProductList() {
     let [productList, setProductList] = useState([])
     let [input , setInput] = useState('')
 
-    //useEffect
+    //useEffect hook
     useEffect(()=>{
+
         //1 : 無第二個參數 : component每次render都會觸發
         //2 : Dependency Array是空array時 : 只會在第一次網頁render時會觸發
         //3 : Dependency Array是有變數時 : 第一次網頁render時 + 指定的變數改變 會觸發
@@ -21,16 +22,8 @@ export default function ProductList() {
         console.log(productList)
     },[]) // <==  Dependency Array
 
-    useEffect(()=>{
-        if(input.length>4)
-            console.log('字串夠長')
-        else
-            console.log('字串太短')
-    },[input])
-
     return (
         <div>
-            <input type="text" onChange={e=>setInput(e.target.value)} />
             <Title mainTitle="請選擇要購買的水果" />
             
             <div>
