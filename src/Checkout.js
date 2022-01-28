@@ -1,32 +1,12 @@
 import Title from "./Title"
 import {Link} from 'react-router-dom'
 import QuantityBtn from "./QuantityBtn"
+import { CartContext } from "./CartContext"
+import { useContext } from "react"
 
 export default function Checkout() {
 
-    let cartItem = 
-    {
-        "cartItems": 
-        [
-            {
-                "id": 5,
-                "name": "藍梅",
-                "image": "blueberry.jpg",
-                "price": 10,
-                "description": "新鮮藍梅50克，補眼之寶",
-                "quantity": 1
-            },
-            {
-                "id": 4,
-                "name": "西瓜",
-                "image": "watermelon.jpg",
-                "price": 20,
-                "description": "新鮮西瓜2公斤，夏季必備",
-                "quantity": 1
-            }
-        ]
-    }
-    let {cartItems} = cartItem
+    let {cartItems} = useContext(CartContext)
     let cartEmpty = cartItems.length<=0 ? true : false
 
     let grandTotal = cartItems.reduce((total, product)=>{
@@ -59,7 +39,7 @@ export default function Checkout() {
                                     {product.description}
                                     {product.price}
                                     購買數量{product.quantity}
-                                    <QuantityBtn/>
+                                    <QuantityBtn productInfo={product} />
                                 </div>
                             ))
                         }
