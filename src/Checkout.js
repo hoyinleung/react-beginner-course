@@ -15,7 +15,7 @@ export default function Checkout() {
     const freeShippingPrice = 99
 
     return (
-        <div>
+        <>
             <Title mainTitle="你的購物車" />
 
             {
@@ -74,6 +74,6 @@ export default function Checkout() {
                 </div> 
             }
 
-        </div>
+        </>
     )
 }

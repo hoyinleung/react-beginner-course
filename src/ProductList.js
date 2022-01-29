@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom"
-import {useState, useEffect} from "react"  //React Hook
+import React, {useState, useEffect} from "react"  //React Hook
 import Title from "./Title"
 import QuantityBtn from "./QuantityBtn"
 
@@ -20,13 +20,14 @@ export default function ProductList() {
     },[]) // <==  Dependency Array
 
     return (
-        <div>
+        //React Fragment簡寫
+        <>
             <Title mainTitle="React入門水果店" />
             
             <div className="container">
                 {
                     productList.map(product=>(
-                        <div key={product.id}>
+                        <React.Fragment key={product.id}>
 
                             <div className="containerItem">
                                 <Link to={'/product/'+product.id}>
@@ -40,10 +41,10 @@ export default function ProductList() {
                                 <QuantityBtn productInfo={product} />
                             </div>
 
-                        </div>
+                        </React.Fragment>
                     ))
                 }
             </div>
-        </div>
+        </>
     )
 }
