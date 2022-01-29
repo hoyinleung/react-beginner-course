@@ -66,14 +66,14 @@ export default function QuantityBtn({productInfo}) {
     }
 
     return (
-        <div>
+        <div className="addToCart">
             {
                 (numInCart === 0) ?
-                <div onClick={handleAdd}>加入購物車</div> :
+                <span className="addToCartBtn" onClick={handleAdd}>加入購物車</span> :
                 <div>
-                    <span onClick={handleSubtract}>-</span>
+                    <span className="subtractBtn" onClick={handleSubtract}>-</span>
                     {numInCart}件
-                    <span onClick={handleAdd}>+</span>
+                    <span className="addBtn" onClick={handleAdd}>+</span>
                 </div>
             }
         </div>

@@ -21,23 +21,36 @@ export default function ProductDetail() {
                 })
                 setProductDetail(productInfo)
             })
-    },[]) // <==  Dependency Array
+    },[params.id]) // <==  Dependency Array
 
     return (
         <div>
             {
                 productDetail &&
-                <div>
+                <div className="ProductDetail">
                     <Title mainTitle={productDetail.name+'產品資料'} />
-                    <img src={process.env.PUBLIC_URL+'/img/'+productDetail.image} alt={productDetail.name} width="400" />
-                    <p>名稱 : {productDetail.name}</p>
-                    <p>售價 : {productDetail.price}元</p>
-                    <p>描述 : {productDetail.description}</p>
-                    <QuantityBtn productInfo={productDetail} />
+
+                    <table width="100%">
+                        <tbody>
+                        <tr>
+                            <td align="right">
+                                <img src={process.env.PUBLIC_URL+'/img/'+productDetail.image} alt={productDetail.name} width="400" />
+                            </td>
+                            <td width="45%" padding="10">
+                                <p>名稱 : {productDetail.name}</p>
+                                <p>售價 : {productDetail.price}元</p>
+                                <p>描述 : {productDetail.description}</p><br/>
+                                <QuantityBtn productInfo={productDetail} />
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             }
         
-            <Link to="/">回到產品列表</Link>
+            <Link to="/" >
+                <div className="backToGoodsListBtn">↩️ 返回商品列表</div>
+            </Link>
         </div>
     )
 }

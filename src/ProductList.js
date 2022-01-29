@@ -1,5 +1,4 @@
 import {Link} from "react-router-dom"
-import styles from './ProductList.module.css'
 import {useState, useEffect} from "react"  //React Hook
 import Title from "./Title"
 import QuantityBtn from "./QuantityBtn"
@@ -7,7 +6,6 @@ import QuantityBtn from "./QuantityBtn"
 export default function ProductList() {
 
     let [productList, setProductList] = useState([])
-    let [input , setInput] = useState('')
 
     //useEffect hook
     useEffect(()=>{
@@ -23,20 +21,25 @@ export default function ProductList() {
 
     return (
         <div>
-            <Title mainTitle="請選擇要購買的水果" />
+            <Title mainTitle="React入門水果店" />
             
-            <div>
+            <div className="container">
                 {
                     productList.map(product=>(
-                        <div className={styles.productBorder} key={product.id}>
-                            {product.name}<br/>
-                            {product.price}元/件<br/>
-                            <Link to={'/product/'+product.id}>
-                            <img src={process.env.PUBLIC_URL+'/img/'+product.image} alt={product.name} />
-                            </Link>
-                            <br/>
-                            {product.description}<br/>
-                            <QuantityBtn productInfo={product} />
+                        <div key={product.id}>
+
+                            <div className="containerItem">
+                                <Link to={'/product/'+product.id}>
+                                    <img src={process.env.PUBLIC_URL+'/img/'+product.image} alt={product.name} />
+                                </Link>
+
+                                <div className="productName">
+                                    {product.name}  -  {product.price}元/件
+                                </div>
+                
+                                <QuantityBtn productInfo={product} />
+                            </div>
+
                         </div>
                     ))
                 }
