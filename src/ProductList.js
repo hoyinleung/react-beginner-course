@@ -22,7 +22,7 @@ export default function ProductList() {
     return (
         //React Fragment簡寫
         <>
-            <Title mainTitle="React入門水果店" />
+            <Title mainTitle="React入門水果店 V2" />
             
             <div className="container">
                 {
